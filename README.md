@@ -8,7 +8,7 @@ Automated login and adding product to cart functionality using element locators 
 Launched Firefox browser automatically using WebDriverManager (no manual driver setup). 
 Ensured smooth browser automation by integrating Maven build lifecycle.
 
-file          selenium1.java
+file          selenium1.java           pom.xml
 
 
 2.Automated Browser Testing using Java and Selenium WebDriver Created a Java-based project by manually adding Selenium JAR files to the classpath. 
@@ -27,7 +27,8 @@ Validated "Add to Cart" functionality for selected products (e.g., Sauce Labs Ba
 Executed test cases sequentially across all three browsers within one program.
 Added console logs to track browser activity and test outcomes.
 
-file           multibrowserlogin.java
+file           multibrowserlogin.java            
+
 output         MULTIPLE BROWSER OUTPUT.pdf
 
 
@@ -39,6 +40,26 @@ Optimized code with switch statement and input validation.
 Demonstrated flexibility and modularity in browser-based test execution.
 
 file           multichoice.java
+
 output         MULTIPLE BROWSER OUTPUT.pdf
 
+5. Automation Testing using  Selenium + Sauce Labs 
+Developed and executed a basic Selenium WebDriver script to automate login on saucedemo.com
+Verified test execution and browser session details on the Sauce Labs dashboard
+Successfully ran the test on one browser (Chrome) in the Sauce Labs environment
+Gaining hands-on experience in remote test execution, session tracking, and debugging
+Planning to extend automation to cover multiple browsers and add validations/assertions
+
+file            saucelabauto.java       pom.xml
+
+output          video.mp4               saucelab automation.pdf              
+
+7. Cross-Browser Automation Testing using Selenium + Sauce Labs 
+Developed and executed a test script for login functionality using Selenium WebDriver
+Ran tests across Chrome, Firefox, and Edge browsers using Sauce Labs cloud
+Verified browser session status and console logs through Sauce Labs dashboard
+
+file            multibrowsersaucelab.java       pom.xml
+
+output          video.mp4                       saucelab automation.pdf    
 
