@@ -1,0 +1,55 @@
+package pri.selenium_saucedemo_test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.By;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+public class multibrowsersaucelab {
+    public static final String USERNAME = "oauth-jackiechan1203jeyu-70650"; // Replace
+    public static final String ACCESS_KEY = "67e7982e-e7e0-42d1-8d6d-f83e6ca360c3"; // Replace
+    public static final String URL = "https://oauth-jackiechan1203jeyu-70650:"
+    		+ "67e7982e-e7e0-42d1-8d6d-f83e6ca360c3"
+    		+ "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+
+    public static void main(String[] args) throws Exception {
+        String[] browsers = {"chrome", "firefox", "MicrosoftEdge"};
+
+        for (String browser : browsers) {
+            System.out.println("Running on: " + browser);
+
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("browserName", browser);
+            caps.setCapability("browserVersion", "latest");
+            caps.setCapability("platformName", "Windows 10");
+
+            // ✅ Required by Sauce Labs
+            Map<String, Object> sauceOptions = new HashMap<>();
+            sauceOptions.put("name", "SauceDemo Login - " + browser); // Test name
+            caps.setCapability("sauce:options", sauceOptions);
+
+            WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+
+            try {
+                driver.get("https://www.saucedemo.com/");
+                driver.findElement(By.id("user-name")).sendKeys("standard_user");
+                driver.findElement(By.id("password")).sendKeys("secret_sauce");
+                driver.findElement(By.id("login-button")).click();
+
+                System.out.println("[" + browser + "] Page Title: " + driver.getTitle());
+
+                Thread.sleep(3000); // Optional: wait for login to be visible
+
+            } catch (Exception e) {
+                System.out.println("[" + browser + "] ❌ Test failed");
+                e.printStackTrace();
+            } finally {
+                driver.quit();
+            }
+        }
+    }
+}
